@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xwar Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background: black;
+      color: #00ff00;
+      overflow-x: hidden;
+      animation: bg-matrix 10s linear infinite;
+    }
+
+    @keyframes bg-matrix {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 1000px; }
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: transparent;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      padding: 12px 20px;
+      margin: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background: #00ff00;
+      color: black;
+    }
+
+    .card {
+      border: 1px solid #00ff00;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      display: inline-block;
+      background-color: rgba(0, 255, 0, 0.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    img {
+      max-width: 180px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #00ff00;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "➤ ";
+      color: #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://files.catbox.moe/0px8yr.png" alt="Foto Matrix">
+
+    <h1>Pilih Metode Pembayaran</h1>
+
+    <button class="btn" onclick="showPayment('dana')">DANA</button>
+    <button class="btn" onclick="showPayment('gopay')">GoPay</button>
+    <button class="btn" onclick="showPayment('qris')">QRIS</button>
+    <br>
+    <button class="btn" onclick="window.location.href='https://t.me/Xwarrxxx'">Next (Hubungi Saya)</button>
+    <br>
+    <button class="btn" onclick="showFriends()">My Ayang</button>
+    <button class="btn" onclick="showItems()">List Store</button>
+
+    <div id="payBox" class="card hidden"></div>
+    <div id="infoBox" class="card hidden"></div>
+  </div>
+
+  <script>
+    function showPayment(method) {
+      const payBox = document.getElementById('payBox');
+      const infoBox = document.getElementById('infoBox');
+      infoBox.classList.add('hidden');
+
+      let text = '';
+      if (method === 'dana') {
+        text = '<strong>DANA:</strong><br>6285886602490 (a.n. S M)';
+      } else if (method === 'gopay') {
+        text = '<strong>GoPay:</strong><br>6285886602490 (a.n. S M)';
+      } else if (method === 'qris') {
+        text = '<strong>Scan QRIS di bawah ini:</strong><br><img src="https://files.catbox.moe/3kzlzl.png" alt="QRIS" style="width:200px;margin-top:10px;">';
+      }
+
+      payBox.innerHTML = text;
+      payBox.classList.remove('hidden');
+    }
+
+    function showFriends() {
+      const infoBox = document.getElementById('infoBox');
+      const payBox = document.getElementById('payBox');
+      payBox.classList.add('hidden');
+
+      infoBox.innerHTML = 
+        <strong>My Ayang:</strong>
+        <ul>
+          <li>????</li>
+        </ul>;
+      infoBox.classList.remove('hidden');
+    }
+
+    function showItems() {
+      const infoBox = document.getElementById('infoBox');
+      const payBox = document.getElementById('payBox');
+      payBox.classList.add('hidden');
+
+      infoBox.innerHTML = 
+        <strong>Store List:</strong>
+        <ul>
+          <li>Bot Telegram</li>
+          <li>Tredict Invictus Telegram</li>
+          <li>Ovalium Ghost </li>
+          <li>Reseller Panel</li>
+          <li>Murbug Vip</li>
+        </ul>;
+      infoBox.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
